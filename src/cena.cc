@@ -12,9 +12,6 @@ Cena::Cena() {
     numSegmentos = 0;
 }
 
-Cena::~Cena() {
-    delete[] segmentos;
-}
 
 void Cena::adicionarSegmento(int id, double inicio, double fim) {
     if (numSegmentos >= capacidadeSegmentos) {

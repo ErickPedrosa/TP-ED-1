@@ -21,7 +21,6 @@ private:
 
 public:
     Cena();
-    ~Cena();
 
     void processarObjeto(const Objeto& obj);
 
