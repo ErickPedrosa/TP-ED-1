@@ -3,32 +3,17 @@
 #include <string>
 #include "../include/objeto.h"
 #include "../include/cena.h"
+#include "../include/sort.h"
 
-// Função para ordenar o vetor de objetos com base na coordenada Y (profundidade)
-// Implementação simples de Selection Sort para cumprir o requisito de não usar std::sort
-void ordenaPorY(Objeto* vobj, int numObj) {
-    for (int i = 0; i < numObj - 1; i++) {
-        int min_idx = i;
-        for (int j = i + 1; j < numObj; j++) {
-            if (vobj[j].getY() < vobj[min_idx].getY()) {
-                min_idx = j;
-            }
-        }
-        // Troca
-        Objeto temp = vobj[min_idx];
-        vobj[min_idx] = vobj[i];
-        vobj[i] = temp;
-    }
-}
 
-// Função para encontrar um objeto no array pelo seu ID
+
 Objeto* encontrarObjeto(int id, Objeto* vobj, int numObj) {
     for (int i = 0; i < numObj; ++i) {
         if (vobj[i].getId() == id) {
             return &vobj[i];
         }
     }
-    return nullptr; // Não encontrado
+    return nullptr; 
 }
 
 int main(int argc, char* argv[]) {
@@ -75,18 +60,14 @@ int main(int argc, char* argv[]) {
             int tempo;
             arquivoEntrada >> tempo;
             
-            // 1. Ordena os objetos por profundidade (Y)
             ordenaPorY(objetos, numObjetos);
 
-            // 2. Cria uma nova cena
             Cena cena;
 
-            // 3. Processa cada objeto para determinar visibilidade
             for (int i = 0; i < numObjetos; ++i) {
                 cena.processarObjeto(objetos[i]);
             }
             
-            // 4. Grava a cena resultante no arquivo de saída
             cena.gravarCena(arquivoSaida, tempo);
         }
     }

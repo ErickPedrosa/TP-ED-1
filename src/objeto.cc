@@ -22,7 +22,6 @@ double Objeto::getY() const {
     return y;
 }
 
-// O segmento de reta inicia em x - largura/2 e termina em x + largura/2
 double Objeto::getInicioX() const {
     return x - largura / 2.0;
 }
