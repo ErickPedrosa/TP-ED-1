@@ -21,3 +21,19 @@ void ordenaPorY(Objeto* vobj, int numObj) {
         troca(vobj, i, min_idx);
     }
 }
+
+//InsertionSort
+void ordenaPorId(SegmentoVisivel segmentos[], int numSegmentos) {
+    
+    for (int i = 1; i < numSegmentos; i++) {
+        SegmentoVisivel chave = segmentos[i];
+        int j = i - 1;
+
+        while (j >= 0 && segmentos[j].idObjeto > chave.idObjeto) {
+            segmentos[j + 1] = segmentos[j];
+            j = j - 1;
+        }
+
+        segmentos[j + 1] = chave;
+    }
+}

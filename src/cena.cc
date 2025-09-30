@@ -1,4 +1,5 @@
 #include "../include/cena.h"
+#include "sort.h"
 #include <iostream>
 #include <iomanip> 
 
@@ -70,6 +71,9 @@ void Cena::processarObjeto(const Objeto& obj) {
 
 
 void Cena::gravarCena(std::ofstream& arquivoSaida, int tempo) {
+
+    ordenaPorId(segmentos, numSegmentos);
+
     for (int i = 0; i < numSegmentos; ++i) {
         arquivoSaida << "S " << tempo << " " << segmentos[i].idObjeto << " "
                      << std::fixed << std::setprecision(2) << segmentos[i].inicio << " "
