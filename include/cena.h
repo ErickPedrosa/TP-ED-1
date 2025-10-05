@@ -3,14 +3,17 @@
 
 #include <fstream>
 #include "objeto.h"
-#define TAM_MAX_CENA 100
+#define TAM_MAX_CENA 1000
 
+//Um trecho da cena que contém um objeto que está visível.
 typedef struct SegmentoVisivel_struct {
     int idObjeto;
     double inicio;
     double fim;
 } SegmentoVisivel;
 
+
+//Classe que representa a cena que conterá todos os objetos em segmentos que aparecerão na cena.
 class Cena {
 private:
     SegmentoVisivel segmentos[TAM_MAX_CENA];

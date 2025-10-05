@@ -3,17 +3,20 @@
 #include <iostream>
 #include <iomanip> 
 
+//TAD para a abstração de um intervalo para facilitar a interpretação do código.
 struct Intervalo {
     double inicio;
     double fim;
 };
 
+//Construtor que inicializa a cena e define o máximo de objetos dela.
 Cena::Cena() {
-    capacidadeSegmentos = 100;
+    capacidadeSegmentos = 1000;
     numSegmentos = 0;
 }
 
 
+//Adiciona um segmento visível a cena.
 void Cena::adicionarSegmento(int id, double inicio, double fim) {
     if (numSegmentos >= capacidadeSegmentos) {
         return;
@@ -24,6 +27,7 @@ void Cena::adicionarSegmento(int id, double inicio, double fim) {
     numSegmentos++;
 }
 
+//Função que verifica se um objeto é visível na cena.
 void Cena::processarObjeto(const Objeto& obj) {
     double objInicio = obj.getInicioX();
     double objFim = obj.getFimX();
@@ -69,7 +73,7 @@ void Cena::processarObjeto(const Objeto& obj) {
     }
 }
 
-
+//Função que gera a cena e grava em um arquivo de saída.
 void Cena::gravarCena(std::ofstream& arquivoSaida, int tempo) {
 
     ordenaPorId(segmentos, numSegmentos);

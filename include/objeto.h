@@ -1,6 +1,7 @@
 #ifndef OBJETO_H
 #define OBJETO_H
 
+//Classe que representa o objeto a ser gerado na cena
 class Objeto {
 private:
     int id;

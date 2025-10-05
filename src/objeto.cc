@@ -1,7 +1,8 @@
 #include "../include/objeto.h"
 
-Objeto::Objeto() : id(0), x(0.0), y(0.0), largura(0.0) {}
+Objeto::Objeto() : id(0), x(0.0), y(0.0), largura(0.0) {} //Construtor.
 
+//Instancia o objeto em uma posição inicial.
 void Objeto::inicializar(int id, double x, double y, double largura) {
     this->id = id;
     this->x = x;
@@ -9,23 +10,23 @@ void Objeto::inicializar(int id, double x, double y, double largura) {
     this->largura = largura;
 }
 
+//Modifica a posição do objeto.
 void Objeto::atualizarPosicao(double novoX, double novoY) {
     this->x = novoX;
     this->y = novoY;
 }
 
+
+//Getters para pegar a posição do objeto.
 int Objeto::getId() const {
     return id;
 }
-
 double Objeto::getY() const {
     return y;
 }
-
 double Objeto::getInicioX() const {
     return x - largura / 2.0;
 }
-
 double Objeto::getFimX() const {
     return x + largura / 2.0;
 }
