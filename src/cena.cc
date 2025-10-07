@@ -11,7 +11,7 @@ struct Intervalo {
 
 //Construtor que inicializa a cena e define o máximo de objetos dela.
 Cena::Cena() {
-    capacidadeSegmentos = 1000;
+    capacidadeSegmentos = TAM_MAX_CENA;
     numSegmentos = 0;
 }
 
@@ -35,8 +35,8 @@ void Cena::processarObjeto(const Objeto& obj) {
     if (objInicio >= objFim) {
         return;
     }
-
-    Intervalo aCobrir[numSegmentos + 1];
+    const int TAMANHO_SEGURO = TAM_MAX_CENA * 2 + 1;
+    Intervalo aCobrir[TAMANHO_SEGURO];
     int aCobrirCount = 1;
     aCobrir[0] = {objInicio, objFim};
 
